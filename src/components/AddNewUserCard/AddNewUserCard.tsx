@@ -55,7 +55,7 @@ const AddNewUserCard = ({
                     inactive
                 </button>
             </div>
-            <div className="flex flex-col items-center gap-6 shadow-xl rounded-md p-12 shadow-primary">
+            <div className="flex flex-col lg:flex-row items-center gap-6 shadow-xl rounded-md p-12 shadow-primary">
                 <img src={logo} className="w-72" alt="logo" />
                 <form className="flex flex-col gap-6 items-center">
                     <div className="flex flex-col items-center">

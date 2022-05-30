@@ -8,16 +8,20 @@ describe('when a random user is requested', () => {
                 ok: true,
                 json: () =>
                     Promise.resolve({
-                        nat: 'US',
-                        picture: {
-                            large: 'large',
-                            medium: 'medium',
-                            thumbnail: 'thum',
-                        },
-                        registered: {
-                            age: 5,
-                            date: 'date',
-                        },
+                        results: [
+                            {
+                                nat: 'US',
+                                picture: {
+                                    large: 'large',
+                                    medium: 'medium',
+                                    thumbnail: 'thum',
+                                },
+                                registered: {
+                                    age: 5,
+                                    date: 'date',
+                                },
+                            },
+                        ],
                     }),
             })
         );

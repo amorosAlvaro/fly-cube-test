@@ -8,8 +8,8 @@ const getRandomUsers = (userName: string): Promise<RandomUserClean | null> =>
             }
             return res.json();
         })
-        .then((data: RandomUser) => {
-            const { picture, nat, registered } = { ...data };
+        .then((data: { results: RandomUser[] }) => {
+            const { picture, nat, registered } = { ...data.results[0] };
             return {
                 picture,
                 nat,

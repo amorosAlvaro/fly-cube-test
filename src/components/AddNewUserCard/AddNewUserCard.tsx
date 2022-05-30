@@ -30,7 +30,7 @@ const AddNewUserCard = ({
     };
 
     return (
-        <div className="flex flex-col gap-3 items-center p-12">
+        <div className="flex flex-col gap-3 items-center p-6">
             <div className="flex flex-row gap-3">
                 <button
                     onClick={() => setActivateSend(true)}

@@ -7,7 +7,7 @@ const App = () => {
     const [randomUsers, setRandomUsers] = useState<RandomUserClean[] | []>([]);
 
     return (
-        <div className="flex flex-col items-center p-6 m-6">
+        <div className="flex flex-col items-center p-6 m-6 w-full">
             <AddNewUserCard
                 randomUsersSetter={setRandomUsers}
                 randomUsersState={randomUsers}

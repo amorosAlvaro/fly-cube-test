@@ -31,33 +31,37 @@ const AddNewUserCard = ({
 
     return (
         <div className="flex flex-col gap-3 items-center p-6">
-            <div className="flex flex-row gap-3">
-                <button
-                    id="active-button"
-                    onClick={() => setActivateSend(true)}
-                    type="button"
-                    className={`${
-                        activateSend
-                            ? 'bg-gradient-to-r from-cyan-500 to-blue-500'
-                            : 'bg-gradient-to-r from-gray-300 to-gray-400'
-                    }  text-white rounded-md uppercase w-min py-2 px-4`}
-                >
-                    active
-                </button>
-                <button
-                    id="inactive-button"
-                    data-testid="inactive-button"
-                    onClick={() => setActivateSend(false)}
-                    type="button"
-                    className={`${
-                        !activateSend
-                            ? 'bg-gradient-to-r from-cyan-500 to-blue-500'
-                            : 'bg-gradient-to-r from-gray-300 to-gray-400'
-                    }  text-white rounded-md uppercase w-min py-2 px-4`}
-                >
-                    inactive
-                </button>
-            </div>
+            <ul className="flex flex-row divide-x divide-gray-300 ">
+                <li>
+                    <button
+                        id="active-button"
+                        onClick={() => setActivateSend(true)}
+                        type="button"
+                        className={`mx-4 text-white rounded-md uppercase w-min py-2 px-4 duration-200 ease-in-out bg-gradient-to-r ${
+                            activateSend
+                                ? 'from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400'
+                                : 'from-gray-300 to-gray-400 hover:from-gray-200 hover:to-gray-300'
+                        }`}
+                    >
+                        active
+                    </button>
+                </li>
+                <li>
+                    <button
+                        id="inactive-button"
+                        data-testid="inactive-button"
+                        onClick={() => setActivateSend(false)}
+                        type="button"
+                        className={`mx-4 text-white rounded-md uppercase w-min py-2 px-4 duration-200 ease-in-out bg-gradient-to-r ${
+                            !activateSend
+                                ? 'from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400'
+                                : 'from-gray-300 to-gray-400 hover:from-gray-200 hover:to-gray-300'
+                        } `}
+                    >
+                        inactive
+                    </button>
+                </li>
+            </ul>
             <div className="flex flex-col lg:flex-row items-center gap-6 shadow-xl rounded-md p-12 shadow-primary">
                 <img src={logo} className="w-72" alt="logo" />
                 <form className="flex flex-col gap-6 items-center">
@@ -65,7 +69,8 @@ const AddNewUserCard = ({
                         <input
                             id="user-input"
                             value={userInput}
-                            className="rounded-md border-primary border-2"
+                            className="rounded-md border-primary border-2 focus:outline-none focus:border-sky-500"
+                            maxLength={15}
                             onChange={(e) => {
                                 e.preventDefault();
                                 setUserInput(e.target.value);
@@ -85,7 +90,7 @@ const AddNewUserCard = ({
                             id="send-button"
                             onClick={() => addUserToList(userInput)}
                             type="button"
-                            className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-md  font-extrabold	uppercase w-min	py-2 px-4"
+                            className="duration-200 ease-in-out bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white rounded-md  font-extrabold	uppercase w-min	py-2 px-4"
                         >
                             enviar
                         </button>
@@ -94,7 +99,7 @@ const AddNewUserCard = ({
                         <button
                             id="send-button-inactive"
                             type="button"
-                            className="cursor-default bg-gradient-to-r from-gray-300 to-gray-400 text-white rounded-md  font-extrabold uppercase w-min	py-2 px-4"
+                            className="duration-200 ease-in-out cursor-default bg-gradient-to-r from-gray-300 to-gray-400 hover:from-gray-200 hover:to-gray-300 text-white rounded-md  font-extrabold uppercase w-min	py-2 px-4"
                         >
                             enviar
                         </button>

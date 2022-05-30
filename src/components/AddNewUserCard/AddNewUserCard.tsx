@@ -33,6 +33,7 @@ const AddNewUserCard = ({
         <div className="flex flex-col gap-3 items-center p-6">
             <div className="flex flex-row gap-3">
                 <button
+                    id="active-button"
                     onClick={() => setActivateSend(true)}
                     type="button"
                     className={`${
@@ -44,6 +45,8 @@ const AddNewUserCard = ({
                     active
                 </button>
                 <button
+                    id="inactive-button"
+                    data-testid="inactive-button"
                     onClick={() => setActivateSend(false)}
                     type="button"
                     className={`${
@@ -60,6 +63,7 @@ const AddNewUserCard = ({
                 <form className="flex flex-col gap-6 items-center">
                     <div className="flex flex-col items-center">
                         <input
+                            id="user-input"
                             value={userInput}
                             className="rounded-md border-primary border-2"
                             onChange={(e) => {
@@ -78,6 +82,7 @@ const AddNewUserCard = ({
                     </div>
                     {activateSend && (
                         <button
+                            id="send-button"
                             onClick={() => addUserToList(userInput)}
                             type="button"
                             className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-md  font-extrabold	uppercase w-min	py-2 px-4"
@@ -87,7 +92,7 @@ const AddNewUserCard = ({
                     )}
                     {!activateSend && (
                         <button
-                            onClick={() => addUserToList(userInput)}
+                            id="send-button-inactive"
                             type="button"
                             className="cursor-default bg-gradient-to-r from-gray-300 to-gray-400 text-white rounded-md  font-extrabold uppercase w-min	py-2 px-4"
                         >

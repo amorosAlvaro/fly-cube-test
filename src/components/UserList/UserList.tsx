@@ -4,7 +4,10 @@ import { RandomUserClean } from '../../interfaces/randomUserInterface';
 const UserList = ({ randomUsers }: { randomUsers: RandomUserClean[] }) => (
     <div className="p-4  w-full md:w-2/3  lg:w-1/2 bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
         <div className="flex justify-between items-center mb-4">
-            <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">
+            <h5
+                id="random-users-header"
+                className="text-xl font-bold leading-none text-gray-900 dark:text-white"
+            >
                 Random Users
             </h5>
         </div>
@@ -19,20 +22,30 @@ const UserList = ({ randomUsers }: { randomUsers: RandomUserClean[] }) => (
                             <div className="flex items-center space-x-4">
                                 <div className="flex-shrink-0">
                                     <img
+                                        id={`${randomUser.userName}-picture`}
                                         className="w-8 h-8 rounded-full"
                                         src={randomUser.picture.thumbnail}
                                         alt="Michael "
                                     />
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                    <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                    <p
+                                        id={`${randomUser.userName}-username`}
+                                        className="text-sm font-medium text-gray-900 truncate dark:text-white"
+                                    >
                                         {randomUser.userName}
                                     </p>
-                                    <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                                    <p
+                                        id={`${randomUser.userName}-nationality`}
+                                        className="text-sm text-gray-500 truncate dark:text-gray-400"
+                                    >
                                         {randomUser.nat}
                                     </p>
                                 </div>
-                                <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                <div
+                                    id={`${randomUser.userName}-age`}
+                                    className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white"
+                                >
                                     {randomUser.registered.age}
                                 </div>
                             </div>

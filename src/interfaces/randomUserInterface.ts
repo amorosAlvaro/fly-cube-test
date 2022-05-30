@@ -13,6 +13,13 @@ export interface RandomUser {
     nat: string;
 }
 
+export interface RandomUserClean {
+    nat: string;
+    registered: Registered;
+    picture: Picture;
+    userName: string;
+}
+
 export interface Name {
     title: string;
     first: string;

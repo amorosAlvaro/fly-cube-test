@@ -1,5 +1,4 @@
-import { RandomUserClean } from '../interfaces/randomUserInterface';
-import cleanUserData from '../helpers/cleanUserData';
+import { RandomUser, RandomUserClean } from '../interfaces/randomUserInterface';
 
 const getRandomUsers = (userName: string): Promise<RandomUserClean | null> =>
     fetch('https://randomuser.me/api/')
@@ -9,7 +8,15 @@ const getRandomUsers = (userName: string): Promise<RandomUserClean | null> =>
             }
             return res.json();
         })
-        .then((data) => cleanUserData(data.results[0], userName))
+        .then((data: RandomUser) => {
+            const { picture, nat, registered } = { ...data };
+            return {
+                picture,
+                nat,
+                registered,
+                userName,
+            };
+        })
         .catch((error) => {
             console.log(error.status, error.statusText);
             return null;

@@ -7,12 +7,14 @@ const App = () => {
 
     return (
         <>
-            <div className="App">Hello world</div>
-
             <AddNewUserCard
                 randomUsersSetter={setRandomUsers}
                 randomUsersState={randomUsers}
             />
+            {randomUsers.length > 0 &&
+                randomUsers.map((user: RandomUserClean) => (
+                    <p key={user.userName}>{user.userName}</p>
+                ))}
         </>
     );
 };
